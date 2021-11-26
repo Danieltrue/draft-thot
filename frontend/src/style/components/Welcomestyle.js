@@ -51,11 +51,9 @@ const Welcomestyle = styled.div`
       }
       .__button__ {
         button {
-          width: 300px;
-          color: #fff;
-          padding: 0.5rem 0;
-          border-radius: 3px;
-          background-color: var(--brandcolor);
+          a {
+            color: inherit;
+          }
         }
         p {
           font-size: 70%;

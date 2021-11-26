@@ -5,6 +5,7 @@ import {
   BiComment,
   BiHeart,
   BiBookmark,
+  BiUser,
 } from "react-icons/bi";
 //time
 import TimeAgo from "javascript-time-ago";
@@ -22,10 +23,7 @@ const Card = (props) => {
         <div className="__author__detail">
           <div>
             <figure>
-              <img
-                src={props.post.user.profileimage}
-                alt={props.post.user.profileimage}
-              />
+              <img src={props.post.user.profileimage} alt={<BiUser />} />
             </figure>
             <hgroup>
               <h5>{props.post.user.username}</h5>

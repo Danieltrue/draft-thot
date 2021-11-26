@@ -10,6 +10,14 @@ const UserSchema = new Schema({
     type: String,
     required: [true, "Please What your role"],
   },
+  email: {
+    type: String,
+    required: [true, "Please What your role"],
+    match: [
+      /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i,
+      "Please add a valid email",
+    ],
+  },
   profileimage: {
     type: String,
     default: "image",

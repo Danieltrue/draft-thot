@@ -28,7 +28,9 @@ const Home = () => {
             <p>Simply Made for Sharing thought's</p>
           </hgroup>
           <div className="__button__">
-            <button className="cta">Get Started</button>
+            <button className="cta">
+              <Link to="/register">Get Started</Link>
+            </button>
             <p>
               Already Have and Account?
               <span>Sign in</span>

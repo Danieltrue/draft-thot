@@ -15,7 +15,9 @@ const Nav = () => {
             <Link to="/login">Sign in</Link>
           </li>
           <li>
-            <button>Get Started</button>
+            <button>
+              <Link to="/register">Get Started</Link>
+            </button>
           </li>
         </ul>
       </Container>

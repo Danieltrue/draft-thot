@@ -2,10 +2,16 @@ import styled from "styled-components";
 
 const Cardstyle = styled.div`
   min-height: 220px;
+  height: inherit;
   border-radius: 3px;
   border: 1px solid #eee;
+  margin: 10px 5px;
   .__card__inner {
     padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
     .__author__detail {
       display: flex;
       justify-content: space-between;

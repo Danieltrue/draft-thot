@@ -6,7 +6,10 @@ const Global = createGlobalStyle`
     --logo: "Forte", sans-serif;
     --brandcolor: #0099ee;
     --brandshadow: #f6f6f6;
+    --branddark: #212121;
     --cardh5: 'Montserrat', sans-serif;
+    --error: red;
+    --success: green;
   }
 
   * {
@@ -32,7 +35,14 @@ const Global = createGlobalStyle`
     font-size: 170%;
     color: var(--brandcolor);
   }
-
+  .cta {
+    width: 300px;
+    color: #fff;
+    padding: 0.5rem 0;
+    border-radius: 3px;
+    background-color: var(--brandcolor);
+    font-size: 80%;
+  }
   
 `;
 

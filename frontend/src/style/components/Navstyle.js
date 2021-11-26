@@ -26,6 +26,9 @@ const Navstyle = styled.nav`
           color: #fff;
           border-radius: 20px;
           margin-left: 10px;
+          a {
+            color: inherit;
+          }
         }
       }
     }

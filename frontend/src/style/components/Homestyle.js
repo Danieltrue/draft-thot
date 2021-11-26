@@ -11,12 +11,12 @@ const Homestyle = styled.main`
       font-weight: 500;
     }
     menu {
-      width: 100%;
-      min-height: 100%;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-gap: 10px;
-      grid-template-rows: masonry;
+      .my-masonry-grid {
+        display: flex;
+        width: auto;
+      }
+      .my-masonry-grid_column {
+      }
     }
   }
 
@@ -35,6 +35,7 @@ const Homestyle = styled.main`
     menu {
       display: grid;
       grid-template-columns: repeat(1, 1fr) !important;
+      width: 100% !important;
     }
   }
 `;
