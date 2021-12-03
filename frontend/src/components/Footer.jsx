@@ -10,7 +10,9 @@ const Footer = (props) => {
       <Container>
         <div className="class">
           <hgroup>
-            <h3 className="logo">thout</h3>
+            <h3 className="logo">
+              <Link to="/">thout</Link>
+            </h3>
             <p>Thot Simply Made for Sharing Thought</p>
           </hgroup>
           <ul>

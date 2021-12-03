@@ -4,6 +4,7 @@ import Container from "./Container";
 import Footer from "./Footer";
 import axios from "axios";
 import { Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Register = () => {
   const [username, setUsername] = useState("");
@@ -16,7 +17,9 @@ const Register = () => {
     <Registerstyle>
       <Container>
         <div className="form__inner">
-          <h3 className="logo">thout</h3>
+          <h3 className="logo">
+            <Link to="/">thout</Link>
+          </h3>
           <form action="#">
             <div>
               <input type="file" name="file" />

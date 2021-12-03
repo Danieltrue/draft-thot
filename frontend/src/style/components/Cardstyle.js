@@ -6,6 +6,10 @@ const Cardstyle = styled.div`
   border-radius: 3px;
   border: 1px solid #eee;
   margin: 10px 5px;
+  transition: all 0.5s;
+  &:hover {
+    box-shadow: 3px 2px 10px var(--brandshadow);
+  }
   .__card__inner {
     padding: 1rem;
     display: flex;

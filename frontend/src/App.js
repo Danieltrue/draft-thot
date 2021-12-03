@@ -7,6 +7,7 @@ import Welcome from "./components/Welcome";
 import Home from "./components/Home";
 import Register from "./components/Register";
 import Login from "./components/Login";
+import Write from "./components/Write";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/thought" element={<Home />}></Route>
           <Route path="/register" element={<Register />}></Route>
           <Route path="/login" element={<Login />}></Route>
+          <Route path="/write-story" element={<Write />}></Route>
         </Routes>
       </BrowserRouter>
     </div>

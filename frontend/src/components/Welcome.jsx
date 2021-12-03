@@ -24,7 +24,9 @@ const Home = () => {
       <div className="__welcome__">
         <div className="main__stream">
           <hgroup>
-            <h6>Thout</h6>
+            <h3 className="logo">
+              <Link to="/">thout</Link>
+            </h3>
             <p>Simply Made for Sharing thought's</p>
           </hgroup>
           <div className="__button__">

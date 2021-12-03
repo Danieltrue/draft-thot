@@ -8,7 +8,9 @@ const Nav = () => {
     <Navstyle>
       <Container>
         <div className="__logo__">
-          <h3 className="logo">thout</h3>
+          <h3 className="logo">
+            <Link to="/">thout</Link>
+          </h3>
         </div>
         <ul>
           <li>

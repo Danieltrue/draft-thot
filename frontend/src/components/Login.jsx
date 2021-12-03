@@ -2,13 +2,16 @@ import React from "react";
 import Loginstyle from "../style/components/Login";
 import Container from "./Container";
 import Footer from "./Footer";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   return (
     <Loginstyle>
       <Container>
         <div>
-          <h3 className="logo">thout</h3>
+          <h3 className="logo">
+            <Link to="/">thout</Link>
+          </h3>
           <form action="#">
             <div>
               <label htmlFor="email">Email</label>
