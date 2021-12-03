@@ -8,7 +8,7 @@ const Nav = () => {
     <Navstyle>
       <Container>
         <div className="__logo__">
-          <h3 className="logo">thot</h3>
+          <h3 className="logo">thout</h3>
         </div>
         <ul>
           <li>

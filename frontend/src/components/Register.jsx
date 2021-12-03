@@ -12,51 +12,11 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [password2, setPassword2] = useState("");
 
-  function handleRegister(evt) {
-    evt.preventDefault();
-    //validating the form data
-    if (username !== "" && email !== "" && role !== "" && password !== "") {
-      const postData = async () => {
-        const data = await axios.post("/thot/register", {
-          username,
-          email,
-          role,
-          password,
-        });
-        await (<Navigate to="/" />);
-      };
-      postData();
-    }
-  }
-  function validateUsername(el) {
-    const small = el.parentElement.querySelector("small");
-    if (el.value.length < 3 && el.value !== "") {
-      el.classList.add("error");
-      small.classList.add("error");
-      small.textContent = "Please add a Username of aleast 3";
-    } else {
-      small.classList.remove("error");
-      el.classList.remove("error");
-    }
-  }
-
-  function validatePassword(el) {
-    const small = el.parentElement.parentElement.querySelector("small");
-    if (el.value !== password2) {
-      el.classList.add("error");
-      small.textContent = "Your Password Does not match";
-      small.classList.add("error");
-      console.log();
-    } else if (el.value === password2) {
-      small.classList.remove("error");
-      el.classList.remove("error");
-    }
-  }
   return (
     <Registerstyle>
       <Container>
         <div className="form__inner">
-          <h3 className="logo">thot</h3>
+          <h3 className="logo">thout</h3>
           <form action="#">
             <div>
               <input type="file" name="file" />
@@ -68,7 +28,6 @@ const Register = () => {
                 name="username"
                 placeholder="Enter a Username"
                 onChange={(user) => setUsername(user.target.value)}
-                onBlur={(el) => validateUsername(el.target)}
                 required
               />
               <small>Error</small>
@@ -102,29 +61,25 @@ const Register = () => {
                   name="password"
                   placeholder="Enter a Password"
                   onChange={(pass) => setPassword(pass.target.value)}
-                  onBlur={(el) => validatePassword(el.target)}
-                  onKeyUp={(el) => validatePassword(el.target)}
                 />
                 <input
                   type="password"
                   name="password2"
                   placeholder="Confirm your password"
                   onChange={(pass2) => setPassword2(pass2.target.value)}
-                  onBlur={(el) => validatePassword(el.target)}
-                  onKeyUp={(el) => validatePassword(el.target)}
                 />
               </div>
               <small>Error</small>
             </div>
             <div>
-              <button onClick={handleRegister} type="submit" className="cta">
+              <button type="submit" className="cta">
                 Create Account
               </button>
             </div>
           </form>
         </div>
       </Container>
-      <Footer />
+      <Footer login={false} />
     </Registerstyle>
   );
 };

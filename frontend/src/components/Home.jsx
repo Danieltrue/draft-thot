@@ -11,7 +11,7 @@ const Home = () => {
   const [posts, setPosts] = useState([]);
   const breakpointColumnsObj = {
     default: 3,
-    1100: 0,
+    1100: 2,
     800: 0,
     700: 0,
     500: 1,

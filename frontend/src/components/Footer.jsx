@@ -4,13 +4,13 @@ import Container from "./Container";
 
 import { Link } from "react-router-dom";
 
-const Footer = () => {
+const Footer = (props) => {
   return (
     <Footerstyle>
       <Container>
         <div className="class">
           <hgroup>
-            <h3 className="logo">thot</h3>
+            <h3 className="logo">thout</h3>
             <p>Thot Simply Made for Sharing Thought</p>
           </hgroup>
           <ul>
@@ -18,7 +18,11 @@ const Footer = () => {
               <Link to="/">About</Link>
             </li>
             <li>
-              <Link to="/">Sign in</Link>
+              {props.login ? (
+                <Link to="/register">Register</Link>
+              ) : (
+                <Link to="/login">Sign in</Link>
+              )}
             </li>
             <li>
               <Link to="/">Home</Link>
@@ -26,7 +30,7 @@ const Footer = () => {
           </ul>
         </div>
         <div className="year">
-          <p>thot {new Date().getFullYear()} all Right Reserved</p>
+          <p>thout {new Date().getFullYear()} all Right Reserved</p>
         </div>
       </Container>
     </Footerstyle>

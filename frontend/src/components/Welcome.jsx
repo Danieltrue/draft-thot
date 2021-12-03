@@ -33,7 +33,9 @@ const Home = () => {
             </button>
             <p>
               Already Have and Account?
-              <span>Sign in</span>
+              <Link to="/login">
+                <span>Sign in</span>
+              </Link>
             </p>
           </div>
         </div>
