@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
 const Writestyle = styled.div`
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   & > div {
     padding: 1rem;
     display: flex;
@@ -16,6 +20,14 @@ const Writestyle = styled.div`
           margin-top: 0.5rem;
           display: flex;
           flex-direction: column;
+          input {
+            width: 100%;
+            background-color: #eee;
+            padding: 1rem;
+            &::placeholder {
+              font-size: 70%;
+            }
+          }
           textarea {
             width: 100%;
             background-color: #eee;

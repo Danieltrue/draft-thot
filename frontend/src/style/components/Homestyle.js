@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 const Homestyle = styled.main`
   position: relative;
+
   & > div {
     /* padding: 0 1rem; */
     .Trending {

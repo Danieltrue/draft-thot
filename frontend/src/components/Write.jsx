@@ -8,23 +8,28 @@ const Write = () => {
   return (
     <Writestyle>
       <Nav />
-      <Container>
-        <div className="form__inner">
-          <form action="#">
-            <div>
-              <textarea
-                cols="30"
-                rows="10"
-                maxLength="1000"
-                placeholder="What your Thought"
-              ></textarea>
-            </div>
-            <div>
-              <button className="cta">Share</button>
-            </div>
-          </form>
-        </div>
-      </Container>
+      <div>
+        <Container>
+          <div className="form__inner">
+            <form action="#">
+              <div>
+                <textarea
+                  cols="30"
+                  rows="10"
+                  maxLength="1000"
+                  placeholder="What your Thought"
+                ></textarea>
+              </div>
+              <div className="category">
+                <input type="text" placeholder="Search for a Category" />
+              </div>
+              <div>
+                <button className="cta">Share</button>
+              </div>
+            </form>
+          </div>
+        </Container>
+      </div>
       <Footer />
     </Writestyle>
   );

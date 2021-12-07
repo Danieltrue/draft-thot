@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const Footerstyle = styled.footer`
   min-height: 100px;
-  position: absolute;
+  /* position: absolute; */
   bottom: 0;
   right: 0;
   left: 0;

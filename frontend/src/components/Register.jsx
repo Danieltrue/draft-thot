@@ -5,6 +5,12 @@ import Footer from "./Footer";
 import axios from "axios";
 import { Navigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import {
+  validateUsername,
+  validateEmail,
+  validateRole,
+  validatePassword,
+} from "../function/registerValidation";
 
 const Register = () => {
   const [username, setUsername] = useState("");
@@ -12,6 +18,12 @@ const Register = () => {
   const [role, setRole] = useState("");
   const [password, setPassword] = useState("");
   const [password2, setPassword2] = useState("");
+
+  //set values
+  console.log(username);
+  console.log(email);
+  console.log(role);
+  console.log(password);
 
   return (
     <Registerstyle>
@@ -30,7 +42,9 @@ const Register = () => {
                 type="text"
                 name="username"
                 placeholder="Enter a Username"
-                onChange={(user) => setUsername(user.target.value)}
+                onBlur={(user) =>
+                  validateUsername(user.target, 3, 15, setUsername)
+                }
                 required
               />
               <small>Error</small>
@@ -41,7 +55,7 @@ const Register = () => {
                 type="email"
                 name="email"
                 placeholder="Enter Your Password"
-                onChange={(email) => setEmail(email.target.value)}
+                onBlur={(user) => validateEmail(user.target, setEmail)}
                 required
               />
               <small>Error</small>
@@ -52,7 +66,7 @@ const Register = () => {
                 type="text"
                 name="role"
                 placeholder="Designer, Writer, Philospher"
-                onChange={(role) => setRole(role.target.value)}
+                onBlur={(user) => validateRole(user.target, 3, 15, setRole)}
               />
               <small>Error</small>
             </div>
@@ -63,7 +77,9 @@ const Register = () => {
                   type="password"
                   name="password"
                   placeholder="Enter a Password"
-                  onChange={(pass) => setPassword(pass.target.value)}
+                  onBlur={(user) =>
+                    validatePassword(user.target, 5, password2, setPassword)
+                  }
                 />
                 <input
                   type="password"

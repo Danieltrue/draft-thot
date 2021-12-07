@@ -71,6 +71,40 @@ const Cardstyle = styled.div`
         }
       }
     }
+    .thought__category {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 0.3rem;
+      margin-top: 1rem;
+      li {
+        background-color: var(--brandshadow);
+        display: flex;
+        justify-content: center;
+        align-self: center;
+        padding: 0.2rem;
+
+        a {
+          font-size: 70%;
+          &:hover {
+            color: var(--brandcolor);
+          }
+        }
+      }
+    }
+  }
+  .option_button {
+    position: relative;
+    .card__option {
+      background-color: #fff;
+      width: 100px;
+      height: 100px;
+      position: absolute;
+      z-index: 10;
+      top: 40%;
+      left: -450%;
+      border-radius: 3px;
+      box-shadow: 3px 2px 10px var(--brandshadow);
+    }
   }
 `;
 

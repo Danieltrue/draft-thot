@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
 const Registerstyle = styled.div`
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: space-between;
   & > div {
     display: flex;
     justify-content: center;
