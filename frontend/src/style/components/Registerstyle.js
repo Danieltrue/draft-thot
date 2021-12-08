@@ -33,8 +33,8 @@ const Registerstyle = styled.div`
         }
         small {
           width: 100%;
-          font-size: 70%;
-          color: red;
+          font-size: 60%;
+          color: var(--error);
           visibility: hidden;
         }
 
@@ -53,12 +53,12 @@ const Registerstyle = styled.div`
           flex-direction: row;
           justify-content: space-between;
           input {
-            width: 49%;
+            width: 100%;
           }
         }
         input.error {
           border: 1px solid var(--error);
-          color: red;
+          color: var(--error);
         }
         small.error {
           visibility: visible;
@@ -92,6 +92,9 @@ const Registerstyle = styled.div`
         button {
           width: 100%;
           margin-top: 0.2rem;
+        }
+        button:disabled {
+          opacity: 0.5;
         }
       }
     }

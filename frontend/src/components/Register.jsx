@@ -17,13 +17,41 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [role, setRole] = useState("");
   const [password, setPassword] = useState("");
-  const [password2, setPassword2] = useState("");
+  const [image, setImage] = useState("");
 
-  //set values
-  console.log(username);
-  console.log(email);
-  console.log(role);
-  console.log(password);
+  function handleImageUpload(e) {
+    setImage(e.target.files[0]);
+    console.log(image);
+  }
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    const small = e.target.querySelectorAll("small");
+    const btn = e.target.querySelector("button");
+    try {
+      await small.forEach((el) => {
+        if (el.classList.contains("error")) {
+          btn.disabled = true;
+          return true;
+        }
+      });
+      const res = await axios.post(
+        "/thot/register",
+        {
+          username,
+          email,
+          role,
+          password,
+          image,
+        },
+        { headers: { "Content-type": "application/json" } }
+      );
+      //Search for the data
+      await console.log(res.data.success);
+    } catch (err) {
+      console.log(err);
+    }
+  }
 
   return (
     <Registerstyle>
@@ -34,7 +62,13 @@ const Register = () => {
           </h3>
           <form action="#">
             <div>
-              <input type="file" name="file" />
+              <input
+                type="file"
+                accept="image/*"
+                name="file"
+                onChange={handleImageUpload}
+                onBlur={handleImageUpload}
+              />
             </div>
             <div>
               <label htmlFor="username">Username</label>
@@ -58,7 +92,7 @@ const Register = () => {
                 onBlur={(user) => validateEmail(user.target, setEmail)}
                 required
               />
-              <small>Error</small>
+              <small></small>
             </div>
             <div>
               <label htmlFor="role">Role</label>
@@ -68,7 +102,7 @@ const Register = () => {
                 placeholder="Designer, Writer, Philospher"
                 onBlur={(user) => validateRole(user.target, 3, 15, setRole)}
               />
-              <small>Error</small>
+              <small></small>
             </div>
             <div>
               <label htmlFor="password">Password</label>
@@ -78,20 +112,18 @@ const Register = () => {
                   name="password"
                   placeholder="Enter a Password"
                   onBlur={(user) =>
-                    validatePassword(user.target, 5, password2, setPassword)
+                    validatePassword(user.target, 5, setPassword)
                   }
-                />
-                <input
-                  type="password"
-                  name="password2"
-                  placeholder="Confirm your password"
-                  onChange={(pass2) => setPassword2(pass2.target.value)}
                 />
               </div>
               <small>Error</small>
             </div>
             <div>
-              <button type="submit" className="cta">
+              <button
+                onClick={(tag) => handleSubmit(tag)}
+                type="submit"
+                className="cta"
+              >
                 Create Account
               </button>
             </div>

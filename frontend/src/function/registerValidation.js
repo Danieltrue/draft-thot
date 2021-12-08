@@ -46,7 +46,6 @@ export function validateRole(target, min, max, setRole) {
     showSuccess(target.parentElement);
   }
 }
-
 export function validateEmail(target, setEmail) {
   const res = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(
     target.value
@@ -58,25 +57,14 @@ export function validateEmail(target, setEmail) {
     setEmail(target.value.trim());
   }
 }
-export function validatePassword(target, min, password2, setPassword) {
-  if (target.value.length > 0 && password2.length > 0) {
-    if (target.value !== password2) {
-      showError(
-        target.parentElement.parentElement,
-        "Your Password are not identical"
-      );
-    } else {
-      showSuccess(target.parentElement.parentElement);
-      setPassword(target.value.trim());
-    }
-  } else if (target.value.length < min && target.value.length > 0) {
+export function validatePassword(target, min, setPassword) {
+  if (target.value.length < min && target.value.length > 0) {
     showError(target.parentElement.parentElement, "Your Password is too short");
   } else {
     showSuccess(target.parentElement.parentElement);
     setPassword(target.value.trim());
   }
 }
-
 function showError(el, msg) {
   const small = el.querySelector("small");
   const input = el.querySelector("input");
@@ -86,6 +74,8 @@ function showError(el, msg) {
 }
 
 function showSuccess(el) {
+  const button = el.parentElement.parentElement.querySelector("button");
+  button.disabled = false;
   const input = el.querySelector("input");
   const small = el.querySelector("small");
   input.classList.remove("error");

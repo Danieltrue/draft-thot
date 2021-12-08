@@ -35,6 +35,15 @@ const Loginstyle = styled.div`
           font-size: 80%;
           width: 100%;
         }
+        small {
+          width: 100%;
+          font-size: 60%;
+          visibility: hidden;
+          color: var(--error);
+        }
+        small.error {
+          visibility: visible;
+        }
         input {
           width: 100%;
           padding: 0.5rem 1rem;
@@ -45,8 +54,14 @@ const Loginstyle = styled.div`
             font-size: 90%;
           }
         }
+        input.error {
+          border: 1px solid var(--error);
+        }
         button {
           margin-top: 0.5rem;
+        }
+        button:disabled {
+          opacity: 0.5;
         }
       }
     }

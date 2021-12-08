@@ -5,6 +5,8 @@ const UserSchema = new Schema({
   username: {
     type: String,
     required: ["Please We need Your Username", true],
+    min: 3,
+    max: 15,
   },
   role: {
     type: String,
@@ -18,9 +20,13 @@ const UserSchema = new Schema({
       "Please add a valid email",
     ],
   },
+  password: {
+    type: String,
+    required: ["Please add a Password", true],
+  },
   profileimage: {
     type: String,
-    default: "image",
+    default: "<i class='bx bxs-user-circle'></i>",
   },
   thought: [
     {
