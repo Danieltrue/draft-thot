@@ -2,12 +2,12 @@ import React, { useEffect, useState } from "react";
 import Registerstyle from "../style/components/Registerstyle";
 import Container from "./Container";
 import Footer from "./Footer";
-import axios from "axios";
 import { Navigate } from "react-router-dom";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 //action
 import { register } from "../action/userAction";
+import Error from "./Error";
 import {
   validateUsername,
   validateEmail,
@@ -43,6 +43,9 @@ const Register = (prop) => {
     <Registerstyle>
       <Container>
         <div className="form__inner">
+          <div className="error">
+            {error ? <Error message={`${email} has been used `} /> : ""}
+          </div>
           <h3 className="logo">
             <Link to="/">thout</Link>
           </h3>
@@ -100,8 +103,7 @@ const Register = (prop) => {
             </div>
             <div>
               <button type="submit" className="cta">
-                {/* Create Account */}
-                <Spinner />
+                {loading ? <Spinner /> : "Create Account"}
               </button>
             </div>
           </form>

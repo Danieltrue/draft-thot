@@ -15,6 +15,10 @@ const Registerstyle = styled.div`
       flex-direction: column;
       align-items: center;
       width: 400px;
+      .error {
+        height: 50px;
+        margin-bottom: 0.5rem;
+      }
       form {
         width: 100%;
         display: flex;
