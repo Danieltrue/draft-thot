@@ -5,29 +5,26 @@ const bcrypt = require("bcrypt");
 //@Access Public
 exports.registerUser = async (req, res, next) => {
   try {
-    //
-    const foundUser = user.findOne({ email: req.body.email.toLowerCase() });
-    // Hashing Password
-    console.log(req.body);
-    const salt = bcrypt.genSaltSync(2);
-    const hashingPassword = bcrypt.hashSync(req.body.password, salt);
-    //Creating the Register Data
+    //find a user
+    const foundUser = await user.findOne({
+      email: req.body.email.toLowerCase(),
+    });
+
+    if (foundUser) return res.status(400).send({ found: true });
+
+    //create a new user
     const userData = await user.create({
       username: req.body.username.toLowerCase(),
       email: req.body.email.toLowerCase(),
       role: req.body.role.toLowerCase(),
-      password: hashingPassword,
+      password: req.body.password,
     });
 
-    //send error if something is missing or is found
-    if (foundUser) {
-      return await res.status(501).send({ found: true });
-    }
-    //Save Data
+    //save the user to the database
     await userData.save();
-
-    return await res.status(200).send({ success: true });
+    return res.status(200).send({ success: true, data: userData });
+    //return response
   } catch (err) {
-    await res.status(400).send(err);
+    return await res.status(500).send(err);
   }
 };

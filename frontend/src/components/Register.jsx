@@ -1,56 +1,42 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Registerstyle from "../style/components/Registerstyle";
 import Container from "./Container";
 import Footer from "./Footer";
 import axios from "axios";
 import { Navigate } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+//action
+import { register } from "../action/userAction";
 import {
   validateUsername,
   validateEmail,
   validateRole,
   validatePassword,
 } from "../function/registerValidation";
+import Spinner from "./Spinner";
 
-const Register = () => {
+const Register = (prop) => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [role, setRole] = useState("");
   const [password, setPassword] = useState("");
-  const [image, setImage] = useState("");
+  //Redux Working.............
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  //use selector
+  const userRegister = useSelector((state) => state.userRegister);
+  const { error, loading, userInfo } = userRegister;
 
-  function handleImageUpload(e) {
-    setImage(e.target.files[0]);
-    console.log(image);
-  }
-
-  async function handleSubmit(e) {
-    e.preventDefault();
-    const small = e.target.querySelectorAll("small");
-    const btn = e.target.querySelector("button");
-    try {
-      await small.forEach((el) => {
-        if (el.classList.contains("error")) {
-          btn.disabled = true;
-          return true;
-        }
-      });
-      const res = await axios.post(
-        "/thot/register",
-        {
-          username,
-          email,
-          role,
-          password,
-          image,
-        },
-        { headers: { "Content-type": "application/json" } }
-      );
-      //Search for the data
-      await console.log(res.data.success);
-    } catch (err) {
-      console.log(err);
+  useEffect(() => {
+    if (userInfo) {
+      navigate("/login");
     }
+  }, [userInfo]);
+  //sumit handlers
+  function handleSubmit(e) {
+    e.preventDefault();
+    dispatch(register(username, email, role, password));
   }
 
   return (
@@ -60,15 +46,9 @@ const Register = () => {
           <h3 className="logo">
             <Link to="/">thout</Link>
           </h3>
-          <form action="#">
+          <form onSubmit={handleSubmit}>
             <div>
-              <input
-                type="file"
-                accept="image/*"
-                name="file"
-                onChange={handleImageUpload}
-                onBlur={handleImageUpload}
-              />
+              <input type="file" accept="image/*" name="file" />
             </div>
             <div>
               <label htmlFor="username">Username</label>
@@ -119,12 +99,9 @@ const Register = () => {
               <small>Error</small>
             </div>
             <div>
-              <button
-                onClick={(tag) => handleSubmit(tag)}
-                type="submit"
-                className="cta"
-              >
-                Create Account
+              <button type="submit" className="cta">
+                {/* Create Account */}
+                <Spinner />
               </button>
             </div>
           </form>

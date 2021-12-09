@@ -15,7 +15,7 @@ function App() {
       <Global />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Welcome />}></Route>
+          <Route path="/" element={<Welcome />} exact></Route>
           <Route path="/thought" element={<Home />}></Route>
           <Route path="/register" element={<Register />}></Route>
           <Route path="/login" element={<Login />}></Route>

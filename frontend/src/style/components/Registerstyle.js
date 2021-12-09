@@ -91,7 +91,10 @@ const Registerstyle = styled.div`
         }
         button {
           width: 100%;
-          margin-top: 0.2rem;
+          height: 40px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
         }
         button:disabled {
           opacity: 0.5;
