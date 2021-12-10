@@ -25,7 +25,7 @@ const Home = () => {
         <div className="main__stream">
           <hgroup>
             <h3 className="logo">
-              <Link to="/">thout</Link>
+              <Link to="/">thot</Link>
             </h3>
             <p>Simply Made for Sharing thought's</p>
           </hgroup>

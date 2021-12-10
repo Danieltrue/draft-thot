@@ -8,6 +8,7 @@ import Home from "./components/Home";
 import Register from "./components/Register";
 import Login from "./components/Login";
 import Write from "./components/Write";
+import Profile from "./components/Profile";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/register" element={<Register />}></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/write-story" element={<Write />}></Route>
+          <Route path="/profile/:id" element={<Profile />}></Route>
         </Routes>
       </BrowserRouter>
     </div>

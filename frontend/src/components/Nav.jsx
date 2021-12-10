@@ -9,7 +9,7 @@ const Nav = () => {
       <Container>
         <div className="__logo__">
           <h3 className="logo">
-            <Link to="/">thout</Link>
+            <Link to="/">thot</Link>
           </h3>
         </div>
         <ul>

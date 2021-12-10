@@ -23,7 +23,6 @@ const Home = () => {
   const userDetail = useSelector((state) => state.userLoggedIn);
   let { error, loading, userInfo } = userDetail;
 
-  console.log(userDetail);
   useEffect(() => {
     const token = JSON.parse(localStorage.getItem("userInfo"))
       ? JSON.parse(localStorage.getItem("userInfo")).data.token

@@ -47,7 +47,7 @@ const Register = (prop) => {
             {error ? <Error message={`${error.data.error}`} /> : ""}
           </div>
           <h3 className="logo">
-            <Link to="/">thout</Link>
+            <Link to="/">thot</Link>
           </h3>
           <form onSubmit={handleSubmit}>
             <div>

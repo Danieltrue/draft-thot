@@ -16,7 +16,15 @@ const LoggedNav = (props) => {
         <ul>
           <li className="detail">
             <p>{props.user.username}</p>
-            <img src={props.user.profileimage} />
+            <Link to={`/profile/${props.user._id}`}>
+              <img
+                src={
+                  props.user.profileimage
+                    ? props.user.profileimage
+                    : "https://cdn-icons-png.flaticon.com/512/847/847969.png"
+                }
+              />
+            </Link>
           </li>
         </ul>
       </Container>

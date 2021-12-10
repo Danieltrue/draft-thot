@@ -1,6 +1,6 @@
 import ContentLoader from "react-content-loader";
 
-const MyLoader = (props) => (
+export const MyLoader = (props) => (
   <ContentLoader
     speed={2}
     width={400}
@@ -16,5 +16,3 @@ const MyLoader = (props) => (
     <rect x="0" y="88" rx="3" ry="3" width="178" height="6" />
   </ContentLoader>
 );
-
-export default MyLoader;

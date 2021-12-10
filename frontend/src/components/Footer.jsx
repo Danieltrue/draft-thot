@@ -11,7 +11,7 @@ const Footer = (props) => {
         <div className="class">
           <hgroup>
             <h3 className="logo">
-              <Link to="/">thout</Link>
+              <Link to="/">thot</Link>
             </h3>
             <p>Thot Simply Made for Sharing Thought</p>
           </hgroup>
@@ -32,7 +32,7 @@ const Footer = (props) => {
           </ul>
         </div>
         <div className="year">
-          <p>thout {new Date().getFullYear()} all Right Reserved</p>
+          <p>thot {new Date().getFullYear()} all Right Reserved</p>
         </div>
       </Container>
     </Footerstyle>
