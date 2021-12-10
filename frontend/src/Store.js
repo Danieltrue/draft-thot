@@ -2,12 +2,20 @@ import { createStore, combineReducers, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
 //
-import { userRegisterReducer } from "./reducer/userReducer";
+import { userRegisterReducer, userLoginReducer } from "./reducer/userReducer";
+import { userLoggedInReducer } from "./reducer/homeReducer";
 const reducer = combineReducers({
   userRegister: userRegisterReducer,
+  userLogin: userLoginReducer,
+  userLoggedIn: userLoggedInReducer,
 });
 
-const intialState = {};
+//save the data to the locastorage
+const userInfoFromStorage = localStorage.getItem("userInfo")
+  ? JSON.parse(localStorage.getItem("userInfo"))
+  : null;
+
+const intialState = { user: { userInfo: userInfoFromStorage } };
 const middleware = [thunk];
 const store = createStore(
   reducer,

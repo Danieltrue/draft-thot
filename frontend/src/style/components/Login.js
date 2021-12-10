@@ -6,6 +6,11 @@ const Loginstyle = styled.div`
   flex-direction: column;
   justify-content: space-between;
   & > div {
+    .error {
+      width: 100%;
+      height: 50px;
+      margin-bottom: 0.5rem;
+    }
     & > div {
       display: flex;
       justify-content: center;
@@ -26,7 +31,7 @@ const Loginstyle = styled.div`
       flex-direction: column;
       margin-top: 2rem;
       div {
-        margin-top: 0.5rem;
+        /* margin-top: 0.5rem; */
         width: 100%;
         display: flex;
         flex-direction: column;
@@ -40,13 +45,16 @@ const Loginstyle = styled.div`
           font-size: 60%;
           visibility: hidden;
           color: var(--error);
+          height: 30px;
         }
         small.error {
+          height: 30px;
           visibility: visible;
         }
         input {
           width: 100%;
-          padding: 0.5rem 1rem;
+          padding: 0 10px;
+          height: 40px;
           background-color: #eee;
           border-radius: 3px;
           font-size: 80%;
@@ -58,7 +66,10 @@ const Loginstyle = styled.div`
           border: 1px solid var(--error);
         }
         button {
-          margin-top: 0.5rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 40px;
         }
         button:disabled {
           opacity: 0.5;

@@ -8,7 +8,8 @@ const Global = createGlobalStyle`
     --brandshadow: #f6f6f6;
     --branddark: #212121;
     --cardh5: 'Roboto', sans-serif;
-    --error: red;
+    --error: #FF9494;
+    --errorLight: #fff4f4;
     --success: green;
   }
 

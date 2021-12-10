@@ -9,3 +9,7 @@ Content-Type: application/json
   "role": "Retar Manager",
   "password": 1234567
 }
+
+###
+GET http://localhost:4000/thot/profile HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxYjMxZWQyNWQ2MGUyNjIwNjdiYzBmZCIsImlhdCI6MTYzOTEyODkyMiwiZXhwIjoxNjQxNzIwOTIyfQ.PqkTPxFHZlbjFqCqVdhjQAiw58_LRRAH3g3e-1eBhc0

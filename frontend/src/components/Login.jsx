@@ -1,29 +1,41 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Loginstyle from "../style/components/Login";
 import Container from "./Container";
 import Footer from "./Footer";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import Error from "./Error";
+import { useDispatch, useSelector } from "react-redux";
+import { login } from "../action/userAction";
 import { validateEmail, validatePassword } from "../function/loginValidation";
+import Spinner from "./Spinner";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const userDetail = useSelector((state) => state.userLogin);
+  let { error, loading, userInfo } = userDetail;
+
   function handleSubmit(e) {
     e.preventDefault();
-    const small = e.target.querySelectorAll("small");
-    const btn = e.target.querySelector("button");
-    small.forEach((el) => {
-      if (el.classList.contains("error")) {
-        btn.disabled = true;
-        return "Pleas Check Form";
-      }
-    });
+    dispatch(login(email, password));
   }
+
+  useEffect(() => {
+    if (userInfo) {
+      navigate("/thought");
+    }
+  }, [userInfo]);
   return (
     <Loginstyle>
       <Container>
         <div>
+          <div className="error">
+            {error ? <Error message={`${error.data.error}`} /> : ""}
+          </div>
           <h3 className="logo">
             <Link to="/">thout</Link>
           </h3>
@@ -46,12 +58,13 @@ const Login = () => {
                 name="passsword"
                 required
                 placeholder="Enter Your Password"
+                onChange={(user) => setPassword(user.target.value)}
               />
               <small>error</small>
             </div>
             <div>
               <button type="submit" className="cta">
-                log in
+                {loading ? <Spinner /> : "log in"}
               </button>
             </div>
           </form>

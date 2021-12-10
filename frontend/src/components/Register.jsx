@@ -26,7 +26,7 @@ const Register = (prop) => {
   const navigate = useNavigate();
   //use selector
   const userRegister = useSelector((state) => state.userRegister);
-  const { error, loading, userInfo } = userRegister;
+  let { error, loading, userInfo } = userRegister;
 
   useEffect(() => {
     if (userInfo) {
@@ -44,7 +44,7 @@ const Register = (prop) => {
       <Container>
         <div className="form__inner">
           <div className="error">
-            {error ? <Error message={`${email} has been used `} /> : ""}
+            {error ? <Error message={`${error.data.error}`} /> : ""}
           </div>
           <h3 className="logo">
             <Link to="/">thout</Link>

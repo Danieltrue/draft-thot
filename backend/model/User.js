@@ -26,7 +26,7 @@ const UserSchema = new Schema({
   },
   profileimage: {
     type: String,
-    default: "<i class='bx bxs-user-circle'></i>",
+    default: "https://cdn-icons-png.flaticon.com/512/21/21104.png",
   },
   thought: [
     {
